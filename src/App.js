@@ -3,10 +3,15 @@ import Place from './components/place.js';
 
 function App() {
   const [location, setLocation] = useState('');
-  const [priceRange, setPriceRange] = useState(2); // Default value, you can adjust as needed
+  const [priceRange, setPriceRange] = useState(2); // Default value, adjust as needed
+  const [radius, setRadius] = useState(25); // Default value, adjust as needed
 
   const handlePriceChange = (e) => {
     setPriceRange(parseInt(e.target.value, 10));
+  };
+
+  const handleRadiusChange = (e) => {
+    setRadius(parseInt(e.target.value, 10));
   };
 
   const getPriceRepresentation = () => {
@@ -52,6 +57,20 @@ function App() {
             className="w-full"
           />
           <div className="text-center mt-2">{getPriceRepresentation()}</div>
+        </div>
+        {/* Radius Slider */}
+        <div className="mb-8">
+          <label className="text-gray-700">Radius (miles):</label>
+          <input
+            type="range"
+            min="1"
+            max="50"
+            step="1"
+            value={radius}
+            onChange={handleRadiusChange}
+            className="w-full"
+          />
+          <div className="text-center mt-2">{`${radius} miles`}</div>
         </div>
         {/* Boxes */}
         <div className="bg-white p-8 rounded-lg shadow-lg mb-8">
