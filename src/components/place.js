@@ -1,5 +1,3 @@
-// Place.js
-
 import React, { useState } from 'react';
 
 const Place = () => {
@@ -30,31 +28,21 @@ const Place = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.box}>
-        <h2>{currentPlace.name}</h2>
-        <p>Rating: {currentPlace.rating}</p>
-        <p>Location: {currentPlace.location}</p>
-        <p>Open Times: {currentPlace.openTimes}</p>
-        <button onClick={changePlace}>Change Place</button>
+    <div className="flex justify-center items-center">
+      <div className="p-4 border border-gray-300 rounded text-center m-4">
+        <h2 className="text-xl font-bold mb-2">{currentPlace.name}</h2>
+        <p className="text-gray-600">Rating: {currentPlace.rating}</p>
+        <p className="text-gray-600">Location: {currentPlace.location}</p>
+        <p className="text-gray-600">Open Times: {currentPlace.openTimes}</p>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+          onClick={changePlace}
+        >
+          Change Place
+        </button>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  box: {
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '8px',
-    textAlign: 'center',
-    margin: '10px',
-  },
 };
 
 export default Place;
